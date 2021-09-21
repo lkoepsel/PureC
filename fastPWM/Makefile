@@ -21,9 +21,8 @@ BAUD  = 9600UL
 ##########------------------------------------------------------##########
 
 PROGRAMMER_TYPE = Arduino
-#PROGRAMMER_TYPE = dragon_dw
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
-PROGRAMMER_ARGS = -F -V -P /dev/ttyACM0 -b 115200	
+PROGRAMMER_ARGS = -F -V -P /dev/tty.usbmodem3101 -b 115200	
 
 ##########------------------------------------------------------##########
 ##########                  Program Locations                   ##########
@@ -46,7 +45,7 @@ AVRDUDE = avrdude
 ##########------------------------------------------------------##########
 
 ## The name of your project (without the .c)
-TARGET = analogWrite
+TARGET = fastPWM
 ## Or name it automatically after the enclosing directory
 # TARGET = $(lastword $(subst /, ,$(CURDIR)))
 
@@ -63,10 +62,7 @@ HEADERS=$(SOURCES:.c=.h)
 # CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.  -I$(LIBDIR)
 ## Else, use this one which simply uses the local directory
 CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
-# use below to setup gdb and debugging
-CFLAGS = -Og -ggdb -std=gnu99 -Wall
-# Use below to optimize size
-#CFLAGS = -Os -g -std=gnu99 -Wall
+CFLAGS = -Os -g -std=gnu99 -Wall
 ## Use short (8-bit) data types 
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums 
 ## Splits up object files per function
@@ -152,10 +148,6 @@ avrdude_terminal:
 flash_usbtiny: PROGRAMMER_TYPE = usbtiny
 flash_usbtiny: PROGRAMMER_ARGS =  # USBTiny works with no further arguments
 flash_usbtiny: flash
-
-flash_dragon: PROGRAMMER_TYPE = dragon
-flash_dragon: PROGRAMMER_ARGS =  -c dragon_isp -P usb 
-flash_dragon: flash
 
 flash_usbasp: PROGRAMMER_TYPE = usbasp
 flash_usbasp: PROGRAMMER_ARGS =  # USBasp works with no further arguments
