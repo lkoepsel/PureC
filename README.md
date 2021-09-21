@@ -17,6 +17,44 @@
 ```
 sudo pkcon install gcc-avr binutils-avr gdb-avr avr-libc avrdude
 ```
+## Instructions for using Dragon as a Debugger
+Commands:
+```bash
+# Connect Dragon to Uno and initiate connection to debugger
+avarice -g -w -d -P atmega328p :3333
+# begin gdb debugger
+avr-gdb led.elf
+# compile/link/load using Dragon
+make flash-dragon
+# Set DWEN bits using Dragon
+avrdude -c dragon -p atmega328p -c dragon_isp -P usb -U hfuse:w:0x9A:m
+# Clear DWEN bits using Dragon
+avrdude -c dragon -p atmega328p -c dragon_isp -P usb -U hfuse:w:0xDA:m
+```
+
+## Program and debug Arduino Uno
+(Using avrdude, Dragon and DebugWire)
+## Process
+### 1. Cut Reset Enable on Uno board
+The Uno board contains a trace that can be cut to disable the auto-reset. The pads on either side of the trace can be soldered together to re-enable it. It's labeled "RESET-EN". You may also be able to disable the auto-reset by connecting a 110 ohm resistor from 5V to the reset line. It is immediately to the right of the 16MHz crystal, looking down on the board, digital pins on top.
+
+
+## Commands to use DWEN
+With DWEN set (hfuse:6 is 0) DebugWire is enable using Dragon. To use run Avarice and gdb and Reset Enable must be cut on Arduino Uno. 
+
+Program board per instructions below to have a working UNO
+```bash
+# Per: http://www.martyncurrey.com/arduino-atmega-328p-fuse-settings/
+# Reset must be cut to allow DWEN to work (get URL)
+DWEN is bit 6 of the High Fuse (hfuse)
+# this changes the High Fuse from DA (1 in bit 6) to 9A (0 in bit 6)
+avrdude -c dragon -p atmega328p -c dragon_isp -P usb -U hfuse:w:0x9A:m 
+
+avarice -g -w -d -P atmega328p :3333
+
+avr-gdb led.elf
+
+```
 
 ## Instructions for reflashing bootloader onto Atmega328P chip
 ```
@@ -48,3 +86,4 @@ Be sure to make/confirm changes to makefile regarding setup, programmer etc
 ```
 make flash
 ```
+
