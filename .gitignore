@@ -5,8 +5,8 @@ cmake-*
 build
 .DS_Store
 *.pdf
- *.elf
- *.hex
+*.elf
+*.hex
  *.obj
  *.o
  *.d
