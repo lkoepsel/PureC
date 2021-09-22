@@ -22,7 +22,7 @@ BAUD  = 9600UL
 
 PROGRAMMER_TYPE = Arduino
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
-PROGRAMMER_ARGS = -F -V -P /dev/tty.usbmodem3101 -b 115200	
+PROGRAMMER_ARGS = -F -V -P /dev/ttyACM0 -b 115200	
 
 ##########------------------------------------------------------##########
 ##########                  Program Locations                   ##########
