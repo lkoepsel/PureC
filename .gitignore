@@ -7,13 +7,13 @@ build
 *.pdf
 *.elf
 *.hex
- *.obj
- *.o
- *.d
- *.eep
- *.lst
- *.lss
- *.sym
- *.map
- *~
- *.eeprom
+*.obj
+*.o
+*.d
+*.eep
+*.lst
+*.lss
+*.sym
+*.map
+*~
+*.eeprom
