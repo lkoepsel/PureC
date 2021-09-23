@@ -12,8 +12,7 @@ BAUD  = 9600UL
 ## A directory for common include files and the simple USART library.
 ## If you move either the current folder or the Library folder, you'll 
 ##  need to change this path to match.
-# LIBDIR = ../../AVR-Programming-Library
-
+LIBDIR = ../avr_UNO
 ##########------------------------------------------------------##########
 ##########                 Programmer Defaults                  ##########
 ##########          Set up once, then forget about it           ##########
@@ -60,9 +59,9 @@ HEADERS=$(SOURCES:.c=.h)
 
 ## Compilation options, type man avr-gcc if you're curious. 
 ## Use this CPPFLAGS with LIBDIR if a library directory is known 
-# CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.  -I$(LIBDIR)
+CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.  -I$(LIBDIR)
 ## Else, use this one which simply uses the local directory
-CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
+#CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
 # use below to setup gdb and debugging
 CFLAGS = -Og -ggdb -std=gnu99 -Wall
 # Use below to optimize size
