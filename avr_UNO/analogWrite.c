@@ -48,13 +48,6 @@ void blink (short int times)
     }
 }
 
-void off_led ()
-{
-    // Set the built-in LED PB5 to be an output
-    DDRB |= _BV(DDB5);
-    PORTB &= ~(_BV(PORTB5));
-}
-
 void clear_all_TC(void) {
     // reset both timer/counter registers
     TCCR0A = 0;
