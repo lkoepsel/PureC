@@ -1,7 +1,7 @@
 #include <util/delay.h>
 #include <avr/io.h>
 
-#define BLINK_DELAY_MS 5000
+#define BLINK_DELAY_MS 1000
 #define INPUT 0
 #define OUTPUT 1
 #define INPUT_PULLUP 2

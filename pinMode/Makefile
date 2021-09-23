@@ -46,7 +46,7 @@ AVRDUDE = avrdude
 ##########------------------------------------------------------##########
 
 ## The name of your project (without the .c)
-TARGET = led
+TARGET = pinMode
 ## Or name it automatically after the enclosing directory
 # TARGET = $(lastword $(subst /, ,$(CURDIR)))
 
@@ -127,7 +127,7 @@ clean:
 	$(TARGET).eeprom
 
 all_clean:
-	rm -f *.elf *.hex *.obj *.o *.d *.eep *.lst *.lss *.sym *.map *~ *.eeprom
+	rm -f *.elf *.hex *.obj *.o *.d *.eep *.lst *.lss *.sym *.map *~ *.eeprom core
 
 ##########------------------------------------------------------##########
 ##########              Programmer-specific details             ##########

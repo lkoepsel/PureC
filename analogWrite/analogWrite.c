@@ -1,5 +1,14 @@
-/* analogWrite: setup the Timer/Counters to provide a PWM signal
-Parameters (Arduino Pin Number, Duty Cycle N (where n/255 = %))
+/* analogWrite(pin, n): setup the Timer/Counters to provide a PWM signal
+Parameters:
+* pin = Arduino UNO Pin Number, must have a "~" in its name (3, 5, 6, 9, 10, 11)
+* n = n/255 Duty Cycle, i.e; n=127, 127/255 = 49.8% duty cycle
+### Pin PWM Frequencies
+UNO pin 3/PD3, 488.3Hz
+UNO pin 5/PD5, 976.6Hz
+UNO pin 6/PD6, 976.6Hz
+UNO pin 9/PB1, 976.6Hz
+UNO pin 10/PB2, 976.6Hz
+UNO pin 11/PB3, 488.3Hz
 
 Arduino     ATmega328   Register    Timer   # bits  Control Registers
 3           PD3         OC2B        2       8       TCCR2A/TCCR2B

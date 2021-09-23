@@ -11,6 +11,18 @@
 * https://www.tderflinger.com/en/arduino-blinking-led-pure-c
 * https://github.com/sagarsp/arduino-blink-c
 
+## Arduino Framework Replacement Routines
+### analogWrite(pin, n): setup the Timer/Counters to provide a PWM signal
+Parameters:
+* pin = Arduino UNO Pin Number, must have a "\~" in its name (3, 5, 6, 9, 10, 11)
+* n = n/255 Duty Cycle, i.e; n=127, 127/255 = 49.8% duty cycle
+### Pin PWM Frequencies
+UNO pin 3/PD3, 488.3Hz
+UNO pin 5/PD5, 976.6Hz
+UNO pin 6/PD6, 976.6Hz
+UNO pin 9/PB1, 976.6Hz
+UNO pin 10/PB2, 976.6Hz
+UNO pin 11/PB3, 488.3Hz
 
 
 ## Instructions for tool chain installation
