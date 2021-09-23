@@ -1,5 +1,4 @@
 #include <avr/io.h>
-#define BLINK_DELAY_MS 50
 #define INPUT 0
 #define OUTPUT 1
 #define INPUT_PULLUP 2

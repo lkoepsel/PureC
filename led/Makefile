@@ -12,7 +12,7 @@ BAUD  = 9600UL
 ## A directory for common include files and the simple USART library.
 ## If you move either the current folder or the Library folder, you'll 
 ##  need to change this path to match.
-# LIBDIR = ../../AVR-Programming-Library
+LIBDIR = ../avr_UNO
 
 ##########------------------------------------------------------##########
 ##########                 Programmer Defaults                  ##########
@@ -22,7 +22,7 @@ BAUD  = 9600UL
 
 PROGRAMMER_TYPE = Arduino
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
-PROGRAMMER_ARGS = -F -V -P /dev/tty.usbmodem3101 -b 115200	
+PROGRAMMER_ARGS = -F -V -P /dev/ttyACM0 -b 115200	
 
 ##########------------------------------------------------------##########
 ##########                  Program Locations                   ##########
@@ -59,9 +59,9 @@ HEADERS=$(SOURCES:.c=.h)
 
 ## Compilation options, type man avr-gcc if you're curious. 
 ## Use this CPPFLAGS with LIBDIR if a library directory is known 
-# CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.  -I$(LIBDIR)
+CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.  -I$(LIBDIR)
 ## Else, use this one which simply uses the local directory
-CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
+# CPPFLAGS = -DF_CPU=$(F_CPU) -DBAUD=$(BAUD) -I.
 CFLAGS = -Os -g -std=gnu99 -Wall
 ## Use short (8-bit) data types 
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums 

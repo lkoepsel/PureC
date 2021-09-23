@@ -2,6 +2,8 @@
 #include "pinMode.h"
 #include "digitalWrite.h"
 
+#define BLINK_DELAY_MS 50
+
 int main (void)
 {
     short int UNO_pin = 13;
