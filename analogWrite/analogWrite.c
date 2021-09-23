@@ -89,7 +89,7 @@ short int analogWrite(short int apin, short int cycle) {
         DDRD |=  _BV(DDD6);
         
         // TCCR0A [ COM0A1 COM0A0 COM0B1 COM0B0 0 0 WGM21 WGM20 ] = 11000010
-        TCCR0A |= (_BV(COM0A1) | _BV(COM0A0) | _BV(WGM21) | _BV(WGM20));
+        TCCR0A |= (_BV(COM0A1) | _BV(WGM21) | _BV(WGM20));
 
         // TCCR0B [ FOC2A FOC2B 0 0 WGM22 CS22 CS21 CS20 ]
         TCCR0B |=  (_BV(CS21) | _BV(CS20));
@@ -147,16 +147,16 @@ int main (void)
 
     short int ard, duty_cycle;
 
-    ard = 11;
-    duty_cycle = 63; // 63 = 25%
+    ard = 6;
+    duty_cycle = 127; // 127 = 50%
     if (analogWrite(ard, duty_cycle)) {
-        blink(5);
+        blink(2);
     }
 
-    ard = 10;
-    duty_cycle = 32;
+    ard = 5;
+    duty_cycle = 63; // 63 = 25%
     if (analogWrite(ard, duty_cycle)) {
-        blink(6);
+        blink(4);
     }
     off_led();
 }
